@@ -1,0 +1,31 @@
+name: 'Build and Deploy: Working Dev Server'
+run-name: '${{github.actor}} is deploying'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - github-workflows
+
+jobs:
+    #check build
+    deploy:
+        if: github.event.pull_request.merged == true
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy to DO droplet and rebuild
+              uses: appleboy/ssh-action@v0.1.3
+              with:
+                  host: ${{ secrets.DEPLOYER_HOST }}
+                  username: ${{ secrets.DEPLOYER_USERNAME }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                    echo ${{secrets.DEPLOYER_PASSWORD}} | sudo -S pm2 stop smoothie-sim/pm2.config.js
+                    cd smoothie-sim
+                    git pull
+                    npm ci
+                    npm run build
+                    cd ..
+                    echo ${{secrets.DEPLOYER_PASSWORD}} | sudo -S pm2 start smoothie-sim/pm2.config.js
+                    echo ${{secrets.DEPLOYER_PASSWORD}} | sudo -S systemctl restart nginx -p ${{secrets.DEPLOYER_PASSWORD}}
