@@ -4,7 +4,10 @@
 import { useThree, useFrame } from '@react-three/fiber'
 import { Stats, OrbitControls } from '@react-three/drei'
 
+import SmoothieInside from './SmoothieInside'
+
 import { useEffect, useRef } from 'react'
+import { AxesHelper } from 'three'
 
 
 export default function SmoothieScene(props) {
@@ -37,13 +40,9 @@ export default function SmoothieScene(props) {
             color="white"
             position={[3, 5, -5]}
         />
+        <SmoothieInside/>
 
-        <group ref={smoothie} position={[0, 0, 0]}>
-            <mesh >
-                <boxGeometry />
-                <meshStandardMaterial />
-            </mesh>
-        </group>
+        <axesHelper/>
         </>
     )
 }
