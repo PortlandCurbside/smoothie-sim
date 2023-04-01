@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
 return (
     <html lang="en">
         <body className='w-full flex flex-col items-center'>
-            <h1 className='text-3xl'> Kyle and Chris&apos; ultimate smoothie simulator </h1>
+            <h1 className='text-3xl'> Kyle and Chris&apos; eatmyass ultimate smoothie simulator </h1>
             {children}
         </body>
     </html>
