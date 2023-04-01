@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - master
-      - github-workflows
+      - git-workflows
 
 jobs:
     #check build
