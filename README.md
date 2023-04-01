@@ -29,12 +29,15 @@ Using NextJS with Tailwind. Animations done with < insert libary name here >
 *Note: all .env files belong in root
 
 .env.development:
+DB_ADDRESS=<staging address address>
 <any dev env variable here>
 
 .env.production:
+DB_ADDRESS=<prod address>
 <any production variables here>
 
 .env.local:
+DB_ADDRESS=<dev address> #set only if you intend to work on DB
 <any env variables to override>
 
 
