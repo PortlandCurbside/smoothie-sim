@@ -8,8 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 return (
     <html lang="en">
-        <body className='w-full flex flex-col items-center'>
-            <h1 className='text-3xl'> Kyle and Chris' ultimate smoothie simulator </h1>
+        <body className='min-h-screen w-full flex flex-col items-center'>
             {children}
         </body>
     </html>
