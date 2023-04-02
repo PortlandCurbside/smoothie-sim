@@ -7,9 +7,7 @@ import { IngredientCard, IngredientCardLoading }  from "./IngredientCard"
 export default function ActiveIngredients(props){
     
     const ingredients = [
-        (<Suspense key={1} fallback={<IngredientCardLoading/>}>
-           <IngredientCard id={1}/>
-        </Suspense>)
+        (<IngredientCard id={1} key={1}/>)
     ]
     
 
