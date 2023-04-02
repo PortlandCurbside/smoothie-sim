@@ -10,6 +10,7 @@ async function getAllIngredients(){
 
 export default function IngredientMenu(props){
 
+
     const { term } = props;
 
     const bal = getAllIngredients(); // TODO: Route Handler
@@ -75,6 +76,7 @@ export default function IngredientMenu(props){
     }
 
     const foundIngredients = filter(term);
+
 
     return (
             <ul class='p-4 flex flex-row space-x-2'>

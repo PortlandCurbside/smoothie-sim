@@ -1,7 +1,7 @@
 "use client"
 import RangeSlider from './RangeSlider';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -15,7 +15,7 @@ async function getIngredientData(id){
 export function IngredientCard(props){
     /* Used to display ingredients that are added to a smoothie */
 
-    const { id, className } = props;
+    const { _id, className } = props;
 
     // TODO for Kyle: Plug in the work, below is a stand in for data fetch
     // const data = await getIngredientData(id);
@@ -35,10 +35,22 @@ export function IngredientCard(props){
     }
 
     const [slideValue, setSlideValue] = useState(1); 
+    const [ loaded, setLoaded ] = useState(false)
+
+    useEffect(() => {
+        console.log("loaded")
+        // TODO loaded will actually be controlled by when fetch gets the ing
+        setLoaded(true)
+    }, [])
+
 
     return <div className={`
             flex flex-row
             transition-all
+            opacity-0
+        
+            ${loaded? 'opacity-100': 'opactiy-0'}
+
             rounded-xl
             drop-shadow-md hover:drop-shadow-xl
             bg-white

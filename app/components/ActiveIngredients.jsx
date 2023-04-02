@@ -2,20 +2,26 @@
 
 import { Suspense } from "react"
 import { IngredientCard, IngredientCardLoading }  from "./IngredientCard"
+import { useActiveIngredientContext } from "./ActiveIngredientProvider"
+import IngredientMenu from "./IngredientMenu";
 
 
 export default function ActiveIngredients(props){
-    
-    const ingredients = [
-        (<Suspense key={1} fallback={<IngredientCardLoading/>}>
-           <IngredientCard id={1}/>
-        </Suspense>)
-    ]
-    
 
-    return <div className={`
+    const { activeIngredients, setActiveIngredients } = useActiveIngredientContext();
+    
+    const ingredients = activeIngredients.map(id => <IngredientCard _id={id}/>);
+
+    console.log(activeIngredients)
+    console.log(ingredients)
+
+ 
+    return (
+        <div className={`
             transition-all
             rounded-lg
+            flex-col
+            space-y-1
 
             px-2
             h-64
@@ -28,5 +34,6 @@ export default function ActiveIngredients(props){
         `}>
             { ingredients }
         </div>
+    )
     
 }
