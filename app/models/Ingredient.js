@@ -1,10 +1,11 @@
 import mongoose from "mongoose"
-import { ParticleSchema } from './Particle'
 
 const IngredientSchema = new mongoose.Schema({
     name: String,
+    description: String,
     thumbnail: String,
     gltfModel: String,
+    isLiquid: Boolean,
     dimensions: { 
         x: Number, 
         y: Number, 
@@ -15,7 +16,7 @@ const IngredientSchema = new mongoose.Schema({
         colors: [String],
         viscocity: Number
     },
-    particles: [ParticleSchema]
+    particles: [{ id: mongoose.ObjectId, count: Number }]
 })
 
 module.exports = mongoose.models.Ingredient || mongoose.model('Ingredient', IngredientSchema)
