@@ -1,7 +1,9 @@
 "use client"
 
+import IngredientThumb from "./IngredientThumb";
+
 async function getAllIngredients(){
-    const res = await fetch(/*<TODO: insert route here>*/)
+    const res = await fetch('/api/ingredients')
     return res.json()
 }
 
@@ -74,16 +76,18 @@ export default function IngredientMenu(props){
 
     const foundIngredients = filter(term);
 
-    return  <ul>
+    return (
+            <ul class='p-4 flex flex-row space-x-2'>
                 { foundIngredients?.length > 0 ? (
                     foundIngredients.map( (ing) => (
                         <li key={ing._id}>
-                            <span>{ing.name}</span>
+                            <IngredientThumb {...ing}> </IngredientThumb>
                         </li> 
                     ))
                 ) : (
                     <h1>No results found.</h1>
                 )}
             </ul>
+    )
 
 }
