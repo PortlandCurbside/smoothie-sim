@@ -1,12 +1,15 @@
 import clientPromise from "@/lib/mongodb"
+import Ingredient from "@/models/Ingredient"
 import { NextResponse } from "next/server"
 
 export async function GET(request, { params }) {
+
   try {
     await clientPromise
-    return NextResponse.json({ isConnected: true, ingredientId: params.id })
+    
+    const ingredient = await Ingredient.findById(params).exec()
+    return NextResponse.json(ingredient)
   } catch (e) {
-    console.error(e)
-    return NextResponse.json({ isConnected: false })
+    return NextResponse.json({ success: false })
   }
 }

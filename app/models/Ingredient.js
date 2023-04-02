@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const IngredientSchema = new mongoose.Schema({
-    name: String,
+    name: { type: String, required: true, unique: true },
     description: String,
     thumbnail: String,
     gltfModel: String,
@@ -14,7 +14,7 @@ const IngredientSchema = new mongoose.Schema({
     liquidProps: {
         volume: Number,
         colors: [String],
-        viscocity: Number
+        viscosity: Number
     },
     particles: [{ id: mongoose.ObjectId, count: Number }]
 })
