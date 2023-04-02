@@ -1,13 +1,12 @@
 import { Inter } from 'next/font/google'
-
-import IngredientSearch from './components/IngredientSearch'
-import ActiveIngredients from './components/ActiveIngredients'
-import SmoothieStatsDashboard from './components/SmoothieStatsDashboard'
+import { getIngredients } from '@/api/ingredient'
+import IngredientSearch from '@/components/IngredientSearch'
+import ActiveIngredients from '@/components/ActiveIngredients'
+import SmoothieStatsDashboard from '@/components/SmoothieStatsDashboard'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
     return (
         <main className='
             transition-all
@@ -28,7 +27,7 @@ export default function Home() {
                     xl:w-5/12
                     xl:h-full
             '>
-                <IngredientSearch />
+                <IngredientSearch ingredients= {ingredients}/>
                 <ActiveIngredients />
             </div>
             {/*<Smoothie />*/}
