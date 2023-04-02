@@ -9,11 +9,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
 return (
     <html lang="en">
-        <body className='w-full flex flex-col min-h-screen'>
+        <body className='w-full flex flex-col bg-salmon min-h-screen'>
             <h1 className='
                 transition-all
-                text-4xl p-2 w-full text-center
-                md:text-4xl md:p-2
+                text-5xl p-2 w-full text-center
+                md:text-5xl md:p-2
                 lg:text-5xl lg:p-3
                 xl:text-left xl:text-6xl xl:p-3
             '>Smoothie Simulator</h1>

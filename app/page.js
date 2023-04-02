@@ -1,8 +1,11 @@
+"use client"
+
 import { Inter } from 'next/font/google'
 
 import IngredientSearch from './components/IngredientSearch'
 import ActiveIngredients from './components/ActiveIngredients'
 import SmoothieStatsDashboard from './components/SmoothieStatsDashboard'
+import { Suspense } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,7 +32,9 @@ export default function Home() {
                     xl:h-full
             '>
                 <IngredientSearch />
-                <ActiveIngredients />
+                <Suspense fallback={<p>Active Ingrients Loading </p>}>
+                    <ActiveIngredients />
+                </Suspense>
             </div>
             {/*<Smoothie />*/}
             <SmoothieStatsDashboard />
