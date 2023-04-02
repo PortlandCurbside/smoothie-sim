@@ -2,15 +2,14 @@ import clientPromise from "@/lib/mongodb"
 import Ingredient from "@/models/Ingredient"
 import { NextResponse } from "next/server"
 
-export default async function handler (req, res) {
-  const { method } = req
-  
-  await clientPromise
+export async function GET(request, { params }) {
 
-  switch (method) {
-    case 'GET':
-      try {
-        const ingredients = Ingredient.findById
-      }
-  }
+    try {
+        await clientPromise
+
+        const ingredient = await Ingredient.findById(params).exec()
+        return NextResponse.json(ingredient)
+    } catch (e) {
+        return NextResponse.json({ success: false })
+    }
 }

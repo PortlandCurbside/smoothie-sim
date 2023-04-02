@@ -6,8 +6,6 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 async function getIngredientData(id){
-    // TODO for Kyle: Put in right URL
-    // TODO for Kyle: Build Router handler in api/ingredient/route.js
     const res = await fetch(`/api/ingredient/${id}`)
     return res.json();
 }
@@ -16,23 +14,16 @@ export function IngredientCard(props){
     /* Used to display ingredients that are added to a smoothie */
 
     const { _id, className } = props;
+    const [loaded, setLoaded ] = useState(false)
+    const [data, setData] = useState({})
 
-    // TODO for Kyle: Plug in the work, below is a stand in for data fetch
-    // const data = await getIngredientData(id);
-    const data = {
-        id: 1,
-        name: "Banana",
-        isLiquid: "false",
-        liquidProps:{
-            volume: 2, // random number
-            colors: [
-                "#F5E8D5"
-            ],
-            viscocity: .7 // 0-1 
-        },
-        description: "A nice delicious curved fruit, perfect for a velvety smoothie.",
-        thumbnail: "/fruit/bananga.png"
-    }
+    getIngredientData(id)
+        .then((data) => {
+            setData(data);
+            loaded(true)
+        })
+        .catch((err) => err)
+
 
     const [slideValue, setSlideValue] = useState(1); 
     const [ loaded, setLoaded ] = useState(false)

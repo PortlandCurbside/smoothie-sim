@@ -16,7 +16,7 @@ export default function IngredientMenu(props){
     const bal = getAllIngredients(); // TODO: Route Handler
     const allIngredients = [
         {
-            _id: 1,
+            _id: "64298ea64aa5e09ee5b702d5",
             name: "Banana",
             isLiquid: "false",
             liquidProps:{
@@ -30,7 +30,7 @@ export default function IngredientMenu(props){
             thumbnail: "/fruit/bananga.png"
         },
         {
-            _id: 2,
+            _id: "642992464aa5e09ee5b702d9",
             name: "Ganana",
             isLiquid: "false",
             liquidProps:{
@@ -44,7 +44,7 @@ export default function IngredientMenu(props){
             thumbnail: "/fruit/bananga.png"
         },
         {
-            _id: 3,
+            _id: "6429929b4aa5e09ee5b702dd",
             name: "Ranana",
             isLiquid: "false",
             liquidProps:{
