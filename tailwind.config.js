@@ -16,6 +16,9 @@ module.exports = {
                 'salmon': '#FFA5AB'
             }
         },
+        fontFamily: {
+            sans: ['var(--encode_sans)', 'var(--font-zilla-slab)']
+        }
     },
     plugins: [],
 }
