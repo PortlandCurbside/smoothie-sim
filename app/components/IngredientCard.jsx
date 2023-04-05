@@ -1,5 +1,5 @@
 "use client"
-import RangeSlider from './RangeSlider';
+import RangeSlider from '@/components/RangeSlider';
 
 import { useEffect, useState } from 'react';
 

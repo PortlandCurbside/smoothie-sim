@@ -1,7 +1,7 @@
 "use client"
 import { Suspense, useState } from 'react'
 
-import IngredientMenu from './IngredientMenu'
+import IngredientMenu from '@/components/IngredientMenu'
 
 export default function IngredientSearch(props){
     // search field value

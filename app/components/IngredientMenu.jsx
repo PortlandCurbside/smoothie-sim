@@ -1,6 +1,6 @@
 "use client"
 
-import IngredientThumb from "./IngredientThumb";
+import IngredientThumb from "@/components/IngredientThumb";
 import { useEffect, useState } from 'react'
 
 // This function gets called on each render, but is cached

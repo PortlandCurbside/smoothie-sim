@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { useActiveIngredientContext } from "./ActiveIngredientProvider"
+import { useActiveIngredientContext } from "@/components/ActiveIngredientProvider"
 
 export default function IngredientThumb(props){
 

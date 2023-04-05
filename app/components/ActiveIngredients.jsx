@@ -1,9 +1,9 @@
 "use client"
 
 import { Suspense } from "react"
-import { IngredientCard, IngredientCardLoading }  from "./IngredientCard"
-import { useActiveIngredientContext } from "./ActiveIngredientProvider"
-import IngredientMenu from "./IngredientMenu";
+import { IngredientCard, IngredientCardLoading }  from "@/components/IngredientCard"
+import { useActiveIngredientContext } from "@/components/ActiveIngredientProvider"
+import IngredientMenu from "@/components/IngredientMenu";
 
 
 export default function ActiveIngredients(props){
