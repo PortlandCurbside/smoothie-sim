@@ -40,7 +40,9 @@ export default function IngredientSearch(props){
             </div>
             
             {/*The choosing of ingredients will likely be drilled later or a context*/}
-            <IngredientMenu term={name}/>
+            <Suspense fallback={<p>loading</p>}>
+                <IngredientMenu term={name}/>
+            </Suspense>
 
         </div>
     )

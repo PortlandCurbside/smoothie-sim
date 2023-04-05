@@ -25,12 +25,14 @@ export default function IngredientThumb(props){
             overflow-hidden
             items-center
         `}>
-            <Image
-                width={60}
-                height={60}
-                src={ thumbnail }
-                alt={ description }
-            />
+            <div className={`h-[60px] flex items-center`}>
+                <Image
+                    width={60}
+                    height={60}
+                    src={ thumbnail }
+                    alt={ description }
+                />
+            </div>
         </div>
 
     )

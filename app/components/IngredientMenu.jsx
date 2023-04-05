@@ -1,69 +1,34 @@
 "use client"
 
 import IngredientThumb from "./IngredientThumb";
+import { useEffect, useState } from 'react'
 
+// This function gets called on each render, but is cached
 async function getAllIngredients(){
-    const res = await fetch('/api/ingredients')
+    const res = await fetch('/api/ingredient')
     return res.json()
 }
 
 
 export default function IngredientMenu(props){
+    
+    const [isFetching, setFetching] = useState(true)
+    const [allIngredients, setIngredients] = useState([])
+
+
+    useEffect(() => {
+        const menu = getAllIngredients()
+            .then((res) => {
+                console.log(res)
+                setFetching(false)
+                setIngredients(res.ingredients)
+            })
+    }, [])
 
 
     const { term } = props;
 
-    const bal = getAllIngredients(); // TODO: Route Handler
-    const allIngredients = [
-        {
-            _id: "64298ea64aa5e09ee5b702d5",
-            name: "Banana",
-            isLiquid: "false",
-            liquidProps:{
-                volume: 2, // random number
-                colors: [
-                    "#F5E8D5"
-                ],
-                viscocity: .7 // 0-1 
-            },
-            description: "A nice delicious curved fruit, perfect for a velvety smoothie.",
-            thumbnail: "/fruit/bananga.png"
-        },
-        {
-            _id: "642992464aa5e09ee5b702d9",
-            name: "Ganana",
-            isLiquid: "false",
-            liquidProps:{
-                volume: 2, // random number
-                colors: [
-                    "#F5E8D5"
-                ],
-                viscocity: .7 // 0-1 
-            },
-            description: "A not delicious curved fruit, inperfect for a velvety smoothie.",
-            thumbnail: "/fruit/bananga.png"
-        },
-        {
-            _id: "6429929b4aa5e09ee5b702dd",
-            name: "Ranana",
-            isLiquid: "false",
-            liquidProps:{
-                volume: 2, // random number
-                colors: [
-                    "#F5E8D5"
-                ],
-                viscocity: .7 // 0-1 
-            },
-            description: "Not a food at all, but a sound",
-            thumbnail: "/fruit/bananga.png"
-        }
-
-    ]
-
-
-
     const filter = (term) => {
-
         if (term !== '') {
             return allIngredients.filter((ing) => {
                 // TODO: match text at any location in ingredient name (e.g., 'ANA' -> 'BANANA')
@@ -77,8 +42,9 @@ export default function IngredientMenu(props){
 
     const foundIngredients = filter(term);
 
-
-    return (
+    
+    if(!isFetching){
+        return (
             <ul class='p-4 flex flex-row space-x-2'>
                 { foundIngredients?.length > 0 ? (
                     foundIngredients.map( (ing) => (
@@ -90,6 +56,11 @@ export default function IngredientMenu(props){
                     <h1>No results found.</h1>
                 )}
             </ul>
-    )
+        )
+    }else{
+        return (
+            <h1> Loading </h1>
+        )
+    }
 
 }
