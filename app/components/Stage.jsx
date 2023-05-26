@@ -14,6 +14,8 @@ export default function Stage() {
     const options = useMemo(() => {
         return {
             controlOrbit: false,
+            depth: {value: -2, min:-10, max:-0.0001, step:0.1},
+            diameter: {value: 5, min: 0, max:10},
             posX: { value: 2.4, min:-10, max:10},
             posY: { value: 2.3, min:-10, max:10},
             posZ: { value: 3.7, min:-10, max:10},
