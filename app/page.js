@@ -38,10 +38,10 @@ export default function Home() {
                 {/*<Smoothie />*/}
                 <div className='
                     flex-col
-                    grow
-                    h-full
+                    grow 
+                    xl:h-full
                 '>
-                    <Stage className={""} />
+                    <Stage className={"h-96"} />
                     <SmoothieStatsDashboard />
                 </div>
             </ActiveIngredientProvider>
