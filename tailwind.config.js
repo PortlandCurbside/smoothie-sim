@@ -7,7 +7,18 @@ module.exports = {
         "!./node_modules",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'vanilla': '#FFEAAE',
+                'charcoal': '#3D5467',
+                'amber': '#FFC100',
+                'dimgray': '#686963',
+                'salmon': '#FFA5AB'
+            }
+        },
+        fontFamily: {
+            sans: ['var(--encode_sans)', 'var(--font-zilla-slab)']
+        }
     },
     plugins: [],
 }

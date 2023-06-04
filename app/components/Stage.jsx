@@ -30,8 +30,8 @@ export default function Stage() {
 
 
     return (
-        <main className={'w-full flex flex-col '}>
-            <div className={'h-screen w-full'}>
+        <main className={'grow w-full flex flex-col '}>
+            <div className={'w-full'}>
                 <Canvas >
                     <SmoothieScene {...config}/>
                 </Canvas>
