@@ -9,7 +9,6 @@ export default function SmoothieDashboard(props){
             md:w-3/4
             xl:w-auto
             xl:grow
-            xl:h-96
         `}>
             <p> Put Smoothie dash here </p>
         </div>

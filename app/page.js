@@ -4,6 +4,7 @@
 import IngredientSearch from '@/components/IngredientSearch'
 import ActiveIngredients from '@/components/ActiveIngredients'
 import SmoothieStatsDashboard from '@/components/SmoothieStatsDashboard'
+import Stage from '@/components/Stage'
 
 import { ActiveIngredientProvider } from './components/ActiveIngredientProvider'
 
@@ -23,20 +24,27 @@ export default function Home() {
             xl:h-full
         '>
 
-            <div className='
-            transition-all
-                    flex flex-col h-fit
-                    space-y-2 w-full items-center
-                    xl:w-5/12
+            <ActiveIngredientProvider>
+                <div className='
+                transition-all
+                        flex flex-col h-fit
+                        space-y-2 w-full items-center
+                        xl:w-5/12
+                        xl:h-full
+                '>
+                        <IngredientSearch />
+                        <ActiveIngredients />
+                </div>
+                {/*<Smoothie />*/}
+                <div className='
+                    flex-col
+                    grow 
                     xl:h-full
-            '>
-                <ActiveIngredientProvider>
-                    <IngredientSearch />
-                    <ActiveIngredients />
-                </ActiveIngredientProvider>
-            </div>
-            {/*<Smoothie />*/}
-            <SmoothieStatsDashboard />
+                '>
+                    <Stage className={"h-96"} />
+                    <SmoothieStatsDashboard />
+                </div>
+            </ActiveIngredientProvider>
             
         </main>
     )
